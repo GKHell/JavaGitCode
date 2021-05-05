@@ -1,3 +1,4 @@
+//way to learn Code
 import java.util.*;
 import java.io.*;
 class A{
