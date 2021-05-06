@@ -15,7 +15,6 @@ class ReturnValue{
 		int x = rv.returnCode(10); //call
 		System.out.println("value in x : "+x);
 
-
 		System.out.println("line 1");
 			rv.returnCode(1);
 			System.exit(0); //exit from program
