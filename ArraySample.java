@@ -2,7 +2,7 @@
 class ArrayCode{
 	public static void main(String[] args) {
 	
-		float a[] = {12,4,4.34f,55,6.4f,44.73f,5,1,3,4,10.2f};
+		float a[] = {12,4,4.34f,0,6.4f,44.73f,5,1,0,4,-10.2f};
 
 		int i;
 		for(i=0;i<11;i++) //method manual size
