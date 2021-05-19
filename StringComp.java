@@ -29,7 +29,8 @@ class StringComp{
 		s2 = " Hello";
 		s1 = s1+s2;	
 
-		System.out.println("s1 : "+s1);
+		System.out.println("s1 : "+s1
+			);
 		
 	}
 }
