@@ -10,9 +10,9 @@ class BookCoders
 		b1.setInfo();
 		b1.display();
 
-		b1=b2;
-		System.out.println("b1 : ",b1.hashCode())
-		System.out.println("b2 : ",b2.hashCode())
+		// b1=b2;
+		System.out.println("b1 : "+b1.hashCode());
+		System.out.println("b2 : "+b2.hashCode());
 
 	}
 } 
