@@ -40,13 +40,13 @@ class Matrix{
 		System.out.println("\n-------------------");
 		for(i = 0; i< row ;i++)
 		{
-			for(j=0; j<column; j++)
+			for(j=0; j< column; j++)
 			{
 				System.out.print(" "+x[i][j]);
 			}
 			System.out.println();
 		}	
-		
+
 	}
 	Matrix sum(Matrix B)
 	{
