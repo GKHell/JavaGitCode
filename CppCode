@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void main()
+{
+	char data[10],choice;
+	int i;
+clrscr();
+
+textattr(2);
+
+	 printf("Enter the data : ");
+	 gets(data);
+
+	 cprintf("         data : %s\n\r",data);
+	 for(i=0;data[i]!='\0';i++)  //for encryption
+	 {
+	       if(!(data[i]==' '))
+			data[i]+=36;
+	 }
+
+	 textattr(4);
+	 cprintf("encrypted msg : %s\n\r\n",data);
+	 ASK:
+	 printf("\nDo you want to decrypt the data (y/n) : ");
+	 scanf("%c",&choice);
+	 if(choice=='n' || choice=='N')
+		exit(10);
+	 else if(choice=='Y' || choice =='y')
+		{
+			for(i=0;data[i]!=NULL;i++)
+			{
+				if(!(data[i]==' '))
+					data[i]-=36;
+			}
+			textattr(2);
+			cprintf(" decrypted msg : %s\n\r",data);
+		}
+	 else
+	 {
+
+		textattr(7);
+		goto ASK;
+	 }
+getch();
+}

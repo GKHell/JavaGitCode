@@ -35,7 +35,7 @@ class Matrix{
 		}
 	}
 
-	void print()
+	void print()ss
 	{
 		System.out.println("\n-------------------");
 		for(i = 0; i< row ;i++)
