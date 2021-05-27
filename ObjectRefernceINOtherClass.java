@@ -1,4 +1,4 @@
-
+// Task : create register and  login method in innerclass
 class ObjectRefernceINOtherClass{
 	public static void main(String[] args) {
 		A a = new A(new B());
