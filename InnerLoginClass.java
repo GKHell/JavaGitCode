@@ -7,9 +7,20 @@ class InnerLoginClass
 		System.out.print("Enter Real Name : ");
 		String name = sc.nextLine();
 		
-		Person p = new Person(name);
-		p.register();
-		p.login();
+		Person p1 = new Person(name);
+		p1.register();
+		p1.login();
+
+		System.out.println("----------------------------------");
+
+		System.out.print("Enter Real Name : ");
+		String name2 = sc.nextLine();
+		
+		Person p2 = new Person(name2);
+		p2.register();
+		p2.login();
+		System.out.println("----------------------------------");
+		p1.login();
 	}
 }
 class Person{
@@ -42,9 +53,7 @@ class Person{
 		System.out.print("Enter userPass : ");
 		String upass = sc.nextLine();
 
-	
 		boolean f = l.validLogin(uname,upass); //jump to 39
-
 		if(f)
 		{
 			System.out.println("LogIN DONE");
