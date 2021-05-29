@@ -17,7 +17,7 @@ class A{
 }
 class B extends A{
 
-	void display()
+	protected void display()
 	{
 		super.display();
 		System.out.println("m2 Hello World...."+this);
