@@ -12,9 +12,9 @@ class staticPoly{
 		}
 	}
 }
-class Code{
+class Code{ // method overloading.. // static poly,
 
-	static boolean compare(Object a,Object b,Object c)
+	static boolean compare(Object a,Object b,Object c) 
 	{
 		return a==b && b==c;
 	} 
