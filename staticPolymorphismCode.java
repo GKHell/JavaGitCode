@@ -2,7 +2,7 @@
 class staticPoly{
 	public static void main(String[] args) {
 		
-		if(Code.compare(1,2,0,0))
+		if(Code.compare(1,2,0))
 		{
 			System.out.println("Fine..");
 		}
