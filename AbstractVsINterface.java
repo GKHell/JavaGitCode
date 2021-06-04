@@ -11,7 +11,11 @@ class AbstractVsINterface{
 abstract class A{
 
 	int i = 19;
-	abstract void showA();
+	abstract void showA(); //abstract
+	void display() //concrete
+	{
+
+	}
 }
 interface B{ 
 	int j = 10; //defaultty final 
