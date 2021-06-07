@@ -7,9 +7,13 @@ public class Code
 	{
 		for(int i =0;i<n;i++)
 		{
-			for(int j=0;j<n;j++)
+			for(int j=i+1;j<n;j++)
 			{
-				System.out.print("\u001B[31m"+" \u2764 ");
+				if(i%2==0)
+					System.out.print("\u001B[31m"+" \u2764 ");
+				else
+					System.out.print("\u001B[34m"+" \u2764 ");
+
 			}
 			System.out.println();
 		}

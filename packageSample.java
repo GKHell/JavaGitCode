@@ -2,7 +2,6 @@
 import pattern.Code;
 class Demo{
 	public static void main(String[] args) {
-		
 		Code c = new Code();
 		c.printStar(10);
 	}
