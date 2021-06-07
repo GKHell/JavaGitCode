@@ -4,7 +4,7 @@ class MultipleInheritanceWIthINterface{
 
 		Code c = new Code();
 		c.say();
-		c.tell();	
+		c.tell();
 	}
 }
 interface A{
