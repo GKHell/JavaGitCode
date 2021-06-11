@@ -1,6 +1,5 @@
 // bufferredReader -> IOException
-// clone -> clonable
-
+// clone -> CloneNotSupportedException
 import java.io.*;
 class throwsVsThrow{
 	public static void main(String[] args)throws IOException,CloneNotSupportedException {
@@ -25,6 +24,7 @@ class throwsVsThrow{
 		catch(NullPointerException e)
 		{
 			System.out.println("Error : "+e);
+
 		}
 
 	}
