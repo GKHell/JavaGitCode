@@ -8,6 +8,9 @@ class HashMapFullCode{
 		HashMap<Integer,String> data = new HashMap<Integer,String>();
 
 
+		data.put(1,"Python");
+		data.put(2,"Java");
+
 		System.out.print("Enter no of Student : ");
 		int n = Integer.parseInt(br.readLine());
 
@@ -25,6 +28,7 @@ class HashMapFullCode{
 		}
 
 
+		data.put(2,"php");
 		Set roll_no = data.keySet(); // getting all keys
 		Iterator i = roll_no.iterator();
 		System.out.println("\n-----------------------\n");
