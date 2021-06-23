@@ -6,12 +6,12 @@ class StringTokenCode2{
 		String s = "I hate programming bcz its just illusion of eyes.";
 
 		// s = "12345x678x90";
-		StringTokenizer data = new StringTokenizer(s,"just");
+		StringTokenizer data = new StringTokenizer(s,"j");
 
 		System.out.println("no  tokens : "+data.countTokens());
 		while(data.hasMoreTokens())
 		{
-			System.out.print(data.nextToken());
+			System.out.println("=> "+data.nextToken());
 		} 
 	}
 }
