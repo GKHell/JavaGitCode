@@ -8,6 +8,7 @@ class StringTokenCode2{
 		// s = "12345x678x90";
 		StringTokenizer data = new StringTokenizer(s,"just");
 
+		System.out.println("no  tokens : "+data.countTokens());
 		while(data.hasMoreTokens())
 		{
 			System.out.print(data.nextToken());
