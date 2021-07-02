@@ -31,7 +31,7 @@ class CopyOneFileToAnotherFile{
 		while((ch=file1.read())!=-1)
 		{
 			file2.write((char)ch);
-		}=
+		}
 
 		file1.close();
 		file2.close();
