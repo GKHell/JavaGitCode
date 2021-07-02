@@ -26,6 +26,8 @@ class FileContent{
 		int ch;
 		char s;
 		int character = 0; 
+		int line = 0;
+		int word = 0;
 		while((ch=file.read())!=-1)
 		{
 			s = (char)ch;
@@ -35,10 +37,21 @@ class FileContent{
 			{
 			     character++;
 			}
-
+			if(s=='\n')
+			{
+				line++;
+			}
+			
+			if(s==' ' || s=='\n')
+			{
+				word++;
+			}
 		}
 		System.out.println("\n-----------------");
 		System.out.println("reading done........");
 		System.out.println("character : "+character);
+		System.out.println("     line : "+line);
+		System.out.println("     word : "+word);
+
 	}
 }
