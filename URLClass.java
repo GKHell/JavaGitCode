@@ -19,7 +19,7 @@ class URLClass{
 		System.out.println("    file : "+url.getFile());
 		System.out.println("    port : "+url.getPort());
 		System.out.println("    path : "+url.getPath());
-
+		System.out.println("  extern : "+url.toExternalForm());
 
 		/*
 
