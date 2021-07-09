@@ -14,9 +14,10 @@ class ServerCode{
 		BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
 		String client_msg = br.readLine(); // to get the line from client
-
 		System.out.println("client says... : "+client_msg);
-
+		//	send to client
+		
+		//
 		ss.close();
 		client.close();
 

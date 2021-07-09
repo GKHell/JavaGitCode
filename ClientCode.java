@@ -12,9 +12,9 @@ class ClientCode{
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Enter data to sent to the server : ");
 		String data = input.readLine();
-
 		sendToServer.writeBytes(data);
 
+	 
 		client.close();
 
 
