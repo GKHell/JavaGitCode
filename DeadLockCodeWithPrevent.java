@@ -70,9 +70,9 @@ class CancelMovie extends Thread{
 
 	public void run()
 	{
-		synchronized (p2)
+		synchronized (p1)
 		{
-			System.out.println(p2+" want to cancel movie...."+"CancelMovie");
+			System.out.println(p1+" want to watch movie...."+"CancelMovie");
 			try{
 				Thread.sleep(100);
 			}
@@ -81,9 +81,9 @@ class CancelMovie extends Thread{
 
 			}
 
-			synchronized (p1)
+			synchronized (p2)
 			{
-				System.out.println(p1+" want to watch movie..."+"CancelMovie");
+				System.out.println(p2+" want to cancel movie..."+"CancelMovie");
 				try{
 					Thread.sleep(100);
 				}
