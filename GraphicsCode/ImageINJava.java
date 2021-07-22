@@ -13,7 +13,7 @@ class Code{
 
 class Root extends Frame{
 
-	 static Image img;
+	static Image img;
 	public Root()
 	{
 		this.addWindowListener(new WindowAdapter(){
