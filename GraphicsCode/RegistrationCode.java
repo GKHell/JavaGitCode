@@ -87,9 +87,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 				rbMale.addItemListener(this);
 				rbFemale.addItemListener(this);
 				rbOther.addItemListener(this);
-
-
-
+				
                // str  => int
 			//    "56" => 56
 			// "ds562" => Error
