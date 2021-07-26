@@ -1,9 +1,9 @@
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.*; 
 
-import javax.swing.*;
-class Code{
+import javax.swing.*; // pre 'J'
+class RegistrationCode{
 	public static void main(String[] args) {
 		
 		Root r = new Root();
@@ -15,9 +15,14 @@ class Code{
 class Root extends JFrame implements ActionListener,ItemListener{
 
 	JPanel mainPanel,formPanel;
-	JLabel lblName,lblRollNo,lblGender; // label
+	JLabel lblName,lblRollNo,lblGender,lblHobbies,lblLanguage,lblMovies,lblHumanLaguage; // label
 	JTextField txtName,txtRollNo;
 	JRadioButton rbMale,rbFemale,rbOther; //radio Button
+	JCheckBox cbProgramming,cbMusic,cbPaiting;
+	Choice cLanguage;
+	JList lstMovies;
+	JScrollPane sb;
+	JComboBox cbLang;
 	JButton btnSave; 
 	public Root() //constructor....
 	{
@@ -87,7 +92,83 @@ class Root extends JFrame implements ActionListener,ItemListener{
 				rbMale.addItemListener(this);
 				rbFemale.addItemListener(this);
 				rbOther.addItemListener(this);
-				
+
+			
+			gbc.gridx = 0;
+			gbc.gridy = 3;
+			gbc.anchor = GridBagConstraints.EAST;
+			lblHobbies = new JLabel("Hobbies : ");
+			formPanel.add(lblHobbies,gbc);
+
+					gbc.gridx = 1;
+					gbc.gridy = 3; 
+					gbc.anchor = GridBagConstraints.WEST;
+					JPanel q = new JPanel(new FlowLayout());
+					formPanel.add(q,gbc);
+
+					cbProgramming = new JCheckBox("Programming");
+					cbMusic = new JCheckBox("Music");
+					cbPaiting = new JCheckBox("Painting ft manju");
+
+					q.add(cbProgramming);
+					q.add(cbMusic);
+					q.add(cbPaiting);
+
+					cbProgramming.addItemListener(this);
+					cbMusic.addItemListener(this);
+					cbPaiting.addItemListener(this);
+
+
+
+			gbc.gridx = 0;
+			gbc.gridy = 4;
+			gbc.anchor = GridBagConstraints.EAST;
+			lblLanguage = new JLabel("Language : ");
+			formPanel.add(lblLanguage,gbc);
+					
+					gbc.gridx = 1;
+					gbc.gridy = 4; 
+					gbc.anchor = GridBagConstraints.WEST;
+					cLanguage = new Choice();
+					cLanguage.add("Python");
+					cLanguage.add("Java");
+					cLanguage.add("Php");
+					cLanguage.add("HTML");
+					formPanel.add(cLanguage,gbc);
+
+
+
+			gbc.gridx = 0;
+			gbc.gridy = 5;
+			gbc.anchor = GridBagConstraints.EAST;
+			lblMovies = new JLabel("Movies : ");
+			formPanel.add(lblMovies,gbc);
+
+				gbc.gridx = 1;
+				gbc.gridy = 5;
+				gbc.anchor = GridBagConstraints.WEST;
+				String list[] = {"IronMan","Loki","ZindaHoonMain","TeraBadla"};
+				lstMovies = new JList<String>(list);
+				lstMovies.setVisibleRowCount(2);
+				sb = new JScrollPane(lstMovies);
+				formPanel.add(sb,gbc);
+				//list -> lstMovies -> sb -> formPanel
+
+
+			gbc.gridx = 0;
+			gbc.gridy = 6;
+			gbc.anchor = GridBagConstraints.EAST;
+			lblHumanLaguage = new JLabel("Language : ");
+			formPanel.add(lblHumanLaguage,gbc);
+
+				gbc.gridx = 1;
+				gbc.gridy = 6;
+				gbc.anchor = GridBagConstraints.WEST;
+				String data[] = {"English","Sankrit","Guj"};
+				cbLang = new JComboBox<String>(data);
+				formPanel.add(cbLang,gbc);
+
+
                // str  => int
 			//    "56" => 56
 			// "ds562" => Error
@@ -99,7 +180,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 			formPanel.add(btnSave,gbc);
 			btnSave.addActionListener(this);		 
 	}
-	public void actionPerformed(ActionEvent e)
+	public void actionPerformed(ActionEvent e) //click event
 	{
 		if(e.getSource()==btnSave)
 		 {
@@ -118,7 +199,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 		 }
 	}
 	int i=0;
-	public void itemStateChanged(ItemEvent ie)
+	public void itemStateChanged(ItemEvent ie) //select event
 	{
 		// System.out.println("Hello ---"+(i++));
 		if(ie.getSource()==rbMale)
@@ -135,6 +216,29 @@ class Root extends JFrame implements ActionListener,ItemListener{
 		{
 			if(ie.getStateChange()==1)
 				System.out.println("\t\t\t"+rbOther.getText()+ " selected...");
+		}
+		if(ie.getSource()==cbProgramming)
+		{
+			if(ie.getStateChange()==1)
+			 	System.out.println("Programming is -------------");
+			else
+			 	System.out.println("\t Programming was -------------");
+
+		}
+		if(ie.getSource()==cbMusic)
+		{
+			if(ie.getStateChange()==1)
+				System.out.println("Music is --------------------");
+			else
+			 	System.out.println("\t Music was -------------");
+
+		}
+		if (ie.getSource()==cbPaiting)
+		 {
+			if(ie.getStateChange()==1)
+				System.out.println("Paint is --------------------");
+			else
+				System.out.println("\t Paint was --------------------");
 		}
 	}
 }
