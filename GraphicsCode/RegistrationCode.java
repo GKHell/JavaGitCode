@@ -238,7 +238,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 			if(ie.getStateChange()==1)
 				System.out.println("Paint is --------------------");
 			else
-				System.out.println("\t Paint was --------------------");
+				System.out.println("\t Paint was --------------------");`
 		}
 	}
 }
