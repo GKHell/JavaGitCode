@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*; 
 
 import javax.swing.*; // pre 'J'
+import java.util.*;
 class RegistrationCode{
 	public static void main(String[] args) {
 		
@@ -14,7 +15,7 @@ class RegistrationCode{
 }
 class Root extends JFrame implements ActionListener,ItemListener{
 
-	JPanel mainPanel,formPanel;
+	JPanel mainPanel,formPanel,menuPanel;
 	JLabel lblName,lblRollNo,lblGender,lblHobbies,lblLanguage,lblMovies,lblHumanLaguage; // label
 	JTextField txtName,txtRollNo;
 	JRadioButton rbMale,rbFemale,rbOther; //radio Button
@@ -23,9 +24,18 @@ class Root extends JFrame implements ActionListener,ItemListener{
 	JList lstMovies;
 	JScrollPane sb;
 	JComboBox cbLang;
+	JMenuBar mb;
+	JMenu mnFile,mnEdit;
+	JMenuItem miFileOpen,miFileSave,miFileClose,miCopy,miPaste;
 	JButton btnSave; 
+
+	//////////
+	String name,gender;
+	int rollNo;
+	ArrayList <String>hobbies;
 	public Root() //constructor....
 	{
+		hobbies = new ArrayList<String>();
 		mainPanel =  new JPanel();
 		BorderLayout border = new BorderLayout();
 		mainPanel.setLayout(border); //setting border for MainPanel 
@@ -33,8 +43,32 @@ class Root extends JFrame implements ActionListener,ItemListener{
 		// mainPanel.setBackground(Color.red);
 		this.add(mainPanel);
 
+		mb = new JMenuBar();
+		mainPanel.add(mb,BorderLayout.NORTH);
+	
+			// menuitem -> menu -> menubar
+			mnFile = new JMenu("File");
+			miFileOpen = new JMenuItem("Open File");
+			mnFile.add(miFileOpen); //add to menu
+
+			miFileSave = new JMenuItem("Save");
+			mnFile.add(miFileSave); //add to menu
+
+			miFileClose = new JMenuItem("Close file");
+			mnFile.add(miFileClose);
+			mb.add(mnFile); // add to menu bar
+		
+				mnEdit = new JMenu("Edit kro");
+				miCopy = new JMenuItem("Copy");
+				mnEdit.add(miCopy);
+
+				miPaste = new JMenuItem("Paste");
+				mnEdit.add(miPaste);
+
+				mb.add(mnEdit);
+
 		formPanel = new JPanel();
-		mainPanel.add(formPanel);
+		mainPanel.add(formPanel,BorderLayout.CENTER);
 
 		GridBagLayout grid = new GridBagLayout();
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -187,9 +221,20 @@ class Root extends JFrame implements ActionListener,ItemListener{
 		 	try{
 		 		Integer.parseInt(txtRollNo.getText());
 		 		txtRollNo.setBackground(Color.green);
-		 		System.out.println("Valid....");
+		 		// System.out.println("Valid....");
+		 		// System.out.println(txtName.getText()+" Welcome..");
+		 		////
 
-		 		System.out.println(txtName.getText()+" Welcome..");
+		 				 name = txtName.getText();
+		 				 rollNo = Integer.parseInt(txtRollNo.getText());
+		 				// System.out.println("  Name : "+name);
+		 				// System.out.println("Rollno : "+rollNo);
+		 				// System.out.println("Gender : "+gender);
+
+		 				 System.out.println("hobbies : "+hobbies);
+
+
+		 		///
 		 	}
 		 	catch(Exception ex)
 		 	{
@@ -205,40 +250,72 @@ class Root extends JFrame implements ActionListener,ItemListener{
 		if(ie.getSource()==rbMale)
 		{
 			if(ie.getStateChange()==1)
-				System.out.println(rbMale.getText()+ " selected...");
+			{
+				// System.out.println(rbMale.getText()+ " selected...");
+				gender = rbMale.getText();
+			}
 		}
 		if(ie.getSource()==rbFemale)
 		{
 			if(ie.getStateChange()==1)
-				System.out.println("\t\t"+rbFemale.getText()+ " selected...");
+			{
+				// System.out.println("\t\t"+rbFemale.getText()+ " selected...");
+				gender = rbFemale.getText();
+			}
 		}
 		if(ie.getSource()==rbOther)
 		{
 			if(ie.getStateChange()==1)
-				System.out.println("\t\t\t"+rbOther.getText()+ " selected...");
+			{
+				// System.out.println("\t\t\t"+rbOther.getText()+ " selected...");
+				gender = rbOther.getText();
+			}
 		}
+		//---------------------
 		if(ie.getSource()==cbProgramming)
 		{
 			if(ie.getStateChange()==1)
+			{
 			 	System.out.println("Programming is -------------");
+			 	hobbies.add(cbProgramming.getText());
+			}
 			else
+			{
 			 	System.out.println("\t Programming was -------------");
+			 	hobbies.remove(cbProgramming.getText());
+
+			}
 
 		}
 		if(ie.getSource()==cbMusic)
 		{
 			if(ie.getStateChange()==1)
+			{
 				System.out.println("Music is --------------------");
+			 	hobbies.add(cbMusic.getText());
+
+			}
 			else
+			{
 			 	System.out.println("\t Music was -------------");
+			 	hobbies.remove(cbMusic.getText());
+
+			}
 
 		}
 		if (ie.getSource()==cbPaiting)
 		 {
 			if(ie.getStateChange()==1)
+			{
 				System.out.println("Paint is --------------------");
+			 	 hobbies.add(cbPaiting.getText());
+
+			}
 			else
-				System.out.println("\t Paint was --------------------");`
+			{
+				System.out.println("\t Paint was --------------------");
+			 	hobbies.remove(cbPaiting.getText());
+			}
 		}
 	}
 }
