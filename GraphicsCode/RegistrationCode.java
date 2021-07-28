@@ -4,8 +4,9 @@ import java.awt.event.*;
 
 import javax.swing.*; // pre 'J'
 import java.util.*;
+import java.io.*;
 class RegistrationCode{
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Root r = new Root();
 		r.setSize(600,300);
@@ -15,22 +16,22 @@ class RegistrationCode{
 }
 class Root extends JFrame implements ActionListener,ItemListener{
 
-	JPanel mainPanel,formPanel,menuPanel;
-	JLabel lblName,lblRollNo,lblGender,lblHobbies,lblLanguage,lblMovies,lblHumanLaguage; // label
-	JTextField txtName,txtRollNo;
-	JRadioButton rbMale,rbFemale,rbOther; //radio Button
-	JCheckBox cbProgramming,cbMusic,cbPaiting;
-	Choice cLanguage;
-	JList lstMovies;
-	JScrollPane sb;
-	JComboBox cbLang;
-	JMenuBar mb;
-	JMenu mnFile,mnEdit;
-	JMenuItem miFileOpen,miFileSave,miFileClose,miCopy,miPaste;
-	JButton btnSave; 
+	private JPanel mainPanel,formPanel,menuPanel;
+	private JLabel lblName,lblRollNo,lblGender,lblHobbies,lblLanguage,lblMovies,lblHumanLaguage; // label
+	private JTextField txtName,txtRollNo;
+	private JRadioButton rbMale,rbFemale,rbOther; //radio Button
+	private JCheckBox cbProgramming,cbMusic,cbPaiting;
+	private Choice cLanguage;
+	private JList lstMovies;
+	private JScrollPane sb;
+	private JComboBox cbLang;
+	private JMenuBar mb;
+	private JMenu mnFile,mnEdit;
+	private JMenuItem miFileOpen,miFileSave,miFileClose,miCopy,miPaste;
+	private JButton btnSave; 
 
 	//////////
-	String name,gender;
+	String name,gender,programingLangauge,humanLanguage,movie;
 	int rollNo;
 	ArrayList <String>hobbies;
 	public Root() //constructor....
@@ -157,7 +158,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 			gbc.gridx = 0;
 			gbc.gridy = 4;
 			gbc.anchor = GridBagConstraints.EAST;
-			lblLanguage = new JLabel("Language : ");
+			lblLanguage = new JLabel("Pro Language : ");
 			formPanel.add(lblLanguage,gbc);
 					
 					gbc.gridx = 1;
@@ -192,7 +193,7 @@ class Root extends JFrame implements ActionListener,ItemListener{
 			gbc.gridx = 0;
 			gbc.gridy = 6;
 			gbc.anchor = GridBagConstraints.EAST;
-			lblHumanLaguage = new JLabel("Language : ");
+			lblHumanLaguage = new JLabel("Hu Language : ");
 			formPanel.add(lblHumanLaguage,gbc);
 
 				gbc.gridx = 1;
@@ -227,11 +228,51 @@ class Root extends JFrame implements ActionListener,ItemListener{
 
 		 				 name = txtName.getText();
 		 				 rollNo = Integer.parseInt(txtRollNo.getText());
-		 				// System.out.println("  Name : "+name);
-		 				// System.out.println("Rollno : "+rollNo);
-		 				// System.out.println("Gender : "+gender);
+		 				 programingLangauge = cLanguage.getSelectedItem(); // drop down
+		 				 movie = lstMovies.getSelectedValue().toString(); // scroll
+		 				 humanLanguage = cbLang.getSelectedItem().toString(); // drop down
 
-		 				 System.out.println("hobbies : "+hobbies);
+
+			 				System.out.println("         Name : "+name);
+			 				System.out.println("       Rollno : "+rollNo);
+			 				System.out.println("       Gender : "+gender);
+			 				System.out.println("      hobbies : "+hobbies);
+			 				System.out.println("  Programming : "+programingLangauge);
+			 				System.out.println("       Movies : "+movie);
+			 				System.out.println("humanLanguage : "+humanLanguage);
+
+
+		 				try
+		 				{
+		 					File f = new File("UserData");
+		 					f.mkdir();
+		 					System.out.println("done");
+		 				}
+		 				catch(Exception ex)
+		 				{
+		 					System.out.println("Eroor.");
+		 				}
+
+		 				FileOutputStream file;
+		 				try{
+
+		 					file = new FileOutputStream("./UserData/"+rollNo+"_"+name+".txt");
+		 					PrintStream ps = new PrintStream(file);
+
+			 				ps.println("         Name : "+name);
+			 				ps.println("       Rollno : "+rollNo);
+			 				ps.println("       Gender : "+gender);
+			 				ps.println("      hobbies : "+hobbies);
+			 				ps.println("  Programming : "+programingLangauge);
+			 				ps.println("       Movies : "+movie);
+			 				ps.println("humanLanguage : "+humanLanguage);
+
+
+		 				}	
+		 				catch(Exception ex)
+		 				{
+		 					System.out.println("Error...");
+		 				}
 
 
 		 		///

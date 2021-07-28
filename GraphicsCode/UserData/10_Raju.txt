@@ -1,0 +1,7 @@
+  Name : Raju
+Rollno : 10
+Gender : Male
+hobbies : [Programming]
+Programming : Java
+Movies : Loki
+humanLanguage : Sankrit

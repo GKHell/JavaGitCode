@@ -1,0 +1,7 @@
+         Name : Sattu
+       Rollno : 12
+       Gender : Male
+      hobbies : [Programming, Music]
+  Programming : HTML
+       Movies : IronMan
+humanLanguage : Sankrit
