@@ -1,2 +1,2 @@
 # JavaGitCode
-IANT.CODE
+Code of Hell, always
